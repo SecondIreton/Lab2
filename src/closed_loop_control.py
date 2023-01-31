@@ -9,6 +9,10 @@ class clCont:
     setpoint = 0
     Kp = 0
 
+    def __init__(self, initSet, initKp):
+        self.setpoint = initSet
+        self.Kp = initKp
+
     def set_setpoint(self, newSetpoint):
         self.setpoint = newSetpoint
 
