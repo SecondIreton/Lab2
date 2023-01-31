@@ -19,9 +19,21 @@ def main():
     tim = 3
     moe = MotorDriver(pinA10,pinB4,pinB5,tim)
     
-    clCont.set_setpoint(0)
+    ''' Encoder Setup Below'''
+    enc = 
+    
+    '''Control Loop Setup'''
+    cll = 
+
+    SP = enc.read()
+    cll.set_setpoint(SP)
+    cll.set_Kp(5)
+    
     while(True):
+        #Set Output to full Rev Here
+        # OP = SP + 
+        lvl = cll.run(SP,OP)
+        moe.set_duty_cycle(lvl)
         utime.sleep_ms(10)
-        cLCont.set_setpoint()
-        cLCont.set_Kp()
+        SP = enc.read()
     
