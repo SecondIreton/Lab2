@@ -9,8 +9,8 @@ class clCont:
         self.setpoint = initSet
         self.Kp = initKp
         
-    def run(self, setpoint, output):
-        PWM = self.Kp * (setpoint - output)
+    def run(self, setpoint, actual):
+        PWM = self.Kp * (setpoint - actual)
         return PWM
 
     def set_setpoint(self, newSetpoint):

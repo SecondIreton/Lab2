@@ -7,9 +7,9 @@ Created on Tue Jan 31 13:18:54 2023
     
 import pyb
 import utime
-import cLCont
-import MotorDriver
-import EncoderReader
+from closed_loop_control import clCont
+from motor_driver import MotorDriver
+from encoder_reader import EncoderReader
 
 def main():
     ''' Motor Setup Below'''
@@ -20,20 +20,21 @@ def main():
     moe = MotorDriver(pinA10,pinB4,pinB5,tim)
     
     ''' Encoder Setup Below'''
-    enc = 
+    pinB6 = pyb.Pin(pyb.Pin.board.PB6, pyb.Pin.IN)
+    pinB7 = pyb.Pin(pyb.Pin.board.PB7, pyb.Pin.IN)
+    enc = EncoderReader(pinB6, pinB7, 4)
+    enc.zero()
     
     '''Control Loop Setup'''
-    cll = 
+    cll = clCont(0, 5)
 
-    SP = enc.read()
-    cll.set_setpoint(SP)
-    cll.set_Kp(5)
-    
-    while(True):
+    for i in range(1000):
         #Set Output to full Rev Here
         # OP = SP + 
-        lvl = cll.run(SP,OP)
+        lvl = cll.run(4000, enc.read())
         moe.set_duty_cycle(lvl)
         utime.sleep_ms(10)
-        SP = enc.read()
+    moe.set_duty_cycle(0)
     
+if __name__ == "__main__":
+    main()
