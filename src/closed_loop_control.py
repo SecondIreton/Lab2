@@ -1,4 +1,5 @@
 import array
+import utime
 
 class clCont:
     """
@@ -6,12 +7,12 @@ class clCont:
 
     @author: gabriel, Trevor Foley
     """
-    self.t = arrary.array('I', [])
-    self.p = array.array('I', [])
     
     def __init__(self, initSet, initKp):
         self.setpoint = initSet
         self.Kp = initKp
+        self.t = array.array('I', [])
+        self.p = array.array('I', [])
         
     def run(self, setpoint, actual):
         PWM = self.Kp * (setpoint - actual)
