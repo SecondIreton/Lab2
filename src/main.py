@@ -31,7 +31,17 @@ def main():
     enc.zero()
     
     '''Control Loop Setup'''
-    cll = clCont(0, .5)
+    new_Kp = True
+    while new_Kp == True:
+        print('Input Proportional Gain Constant, Kp:')
+        Kp = input()
+        try:
+            Kp = float(Kp)
+            new_Kp = False
+        except:
+            print('Please input a numeric value.')
+            
+    cll = clCont(0, Kp)
 
     for i in range(1000):
         #Set Output to full Rev Here
