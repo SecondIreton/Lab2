@@ -11,6 +11,10 @@ class clCont:
         
     def run(self, setpoint, actual):
         PWM = self.Kp * (setpoint - actual)
+        if PWM > 100:
+            PWM = 100
+        elif PWM < -100:
+            PWM = -100
         return PWM
 
     def set_setpoint(self, newSetpoint):
