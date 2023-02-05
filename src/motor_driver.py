@@ -21,8 +21,8 @@ class MotorDriver:
         # If enpin is high motor/vice versa
         en_pin.low()
         self.en_pin = en_pin
-        # Setup Timer
-        tim = pyb.Timer(timer, freq=20000) 
+        # Setup Timer was freq = 20000
+        tim = pyb.Timer(timer, prescalar = 0, period = 0xFFFF) 
         self.tim = tim
         # Setup Channel
         ch1 = tim.channel(1, pyb.Timer.PWM, pin=in1pin)

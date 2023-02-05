@@ -20,7 +20,7 @@ class EncoderReader:
         """!
         Sets the channels and timer for the motor that is running
         """
-        self.timer = pyb.Timer (timerNum, freq=20000)
+        self.timer = pyb.Timer (timerNum, prescalar = 0, period = 0xFFFF)
         ch1 = self.timer.channel(1, pyb.Timer.ENC_A, pin=pinA)
         ch2 = self.timer.channel(2, pyb.Timer.ENC_B, pin=pinB)
 
@@ -29,9 +29,9 @@ class EncoderReader:
         @returns The position of the motor from the zero point
         """
         current_position = self.timer.counter()
-        if current_position - self.former_position > 3000:
+        if current_position - self.former_position > 2000:
             difference = current_position - 4000 + self.former_position
-        elif current_position - self.former_position < -3000:
+        elif current_position - self.former_position < -2000:
             difference = current_position + 4000 - self.former_position
         else:
             difference = current_position - self.former_position
