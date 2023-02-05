@@ -1,10 +1,14 @@
+import array
+
 class clCont:
     """
     Created on Tue Jan 31 12:44:02 2023
 
     @author: gabriel, Trevor Foley
     """
-
+    self.t = arrary.array('I', [])
+    self.p = array.array('I', [])
+    
     def __init__(self, initSet, initKp):
         self.setpoint = initSet
         self.Kp = initKp
@@ -16,6 +20,9 @@ class clCont:
         elif PWM < -100:
             PWM = -100
         return PWM
+    
+        self.t.append(utime.ticks_ms())
+        self.p.append(actual)
 
     def set_setpoint(self, newSetpoint):
         self.setpoint = newSetpoint
