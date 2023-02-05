@@ -40,12 +40,13 @@ def main():
             new_Kp = False
         except:
             print('Please input a numeric value.')
-            
+    #print(Kp)        
     cll = clCont(0, Kp)
 
     for i in range(1000):
         #Set Output to full Rev Here
-        # OP = SP + 
+        # OP = SP +
+        print(enc.read())
         lvl = cll.run(8000, enc.read())
         moe.set_duty_cycle(lvl)
         utime.sleep_ms(10)

@@ -34,4 +34,4 @@ class clCont:
     def printRes(self):
         for val in len(self.t):
             print(self.t[val], ",", self.p[val])
-            
+           

@@ -21,8 +21,9 @@ class MotorDriver:
         # If enpin is high motor/vice versa
         en_pin.low()
         self.en_pin = en_pin
-        # Setup Timer was freq = 20000
-        tim = pyb.Timer(timer, prescalar = 0, period = 0xFFFF) 
+        # Setup Timer was freq = 20000,  prescaler=0, period=0xFFFF
+        tim = pyb.Timer(timer, freq = 20000)
+        #tim.prescalar(0)
         self.tim = tim
         # Setup Channel
         ch1 = tim.channel(1, pyb.Timer.PWM, pin=in1pin)
@@ -53,16 +54,16 @@ class MotorDriver:
             level = level/(-1)
             self.ch2.pulse_width_percent(level)
             self.ch1.pulse_width_percent(0)
-        print (f"Setting duty cycle to {level}")
+        #print (f"Setting duty cycle to {level}")
         
         
         
-if __name__ == '__main__':
+'''if __name__ == '__main__':
     # Section for testing code?
-    '''
+    
     moe = MotorDriver (a_pin, another_pin, a_timer)
     moe.set_duty_cycle (-42)
-    '''
+    
     pinA10 = pyb.Pin(pyb.Pin.board.PA10, pyb.Pin.OUT_PP)
     pinB4 = pyb.Pin(pyb.Pin.board.PB4, pyb.Pin.OUT_PP)
     pinB5 = pyb.Pin(pyb.Pin.board.PB5, pyb.Pin.OUT_PP)
@@ -70,13 +71,13 @@ if __name__ == '__main__':
     
     #moe = MotorDriver(pinA10,pinB4,pinB5,tim)
     #moe.set_duty_cycle(50)
-    try:
+   try:
         #moe = MotorDriver(pinA10,pinB4,pinB5,tim)
         #moe.set_duty_cycle(50)
-        #main()
+        main()
     except KeyboardInterrupt:
         en_pin.low()
-        print('Interrupted :/')
+        print('Interrupted :/')'''
     
     
     
