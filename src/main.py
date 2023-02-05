@@ -52,5 +52,7 @@ def main():
         utime.sleep_ms(10)
     moe.set_duty_cycle(0)
     
+    cll.printRes()
+    
 if __name__ == "__main__":
     main()
