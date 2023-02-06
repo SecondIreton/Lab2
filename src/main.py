@@ -35,11 +35,11 @@ def main():
     while new_Kp == True:
         print('Input Proportional Gain Constant, Kp:')
         Kp = 0.5
-        #try:
-            #Kp = float(Kp)
-            #new_Kp = False
-        #except:
-            #print('Please input a numeric value.')
+        try:
+            Kp = float(Kp)
+            new_Kp = False
+        except:
+            print('Please input a numeric value.')
     print(Kp)
     cll = clCont(0, Kp)
 
