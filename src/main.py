@@ -34,23 +34,22 @@ def main():
     new_Kp = True
     while new_Kp == True:
         print('Input Proportional Gain Constant, Kp:')
-        Kp = 0.5
+        Kp = input()
         try:
             Kp = float(Kp)
             new_Kp = False
         except:
             print('Please input a numeric value.')
-    print(Kp)
     cll = clCont(0, Kp)
 
-    for i in range(1000):
+    for i in range(100):
         #Set Output to full Rev Here
         # OP = SP +
-        print(enc.read())
         lvl = cll.run(8000, enc.read())
         moe.set_duty_cycle(lvl)
         utime.sleep_ms(10)
     moe.set_duty_cycle(0)
+    cll.printRes()
     
 if __name__ == "__main__":
     main()

@@ -29,7 +29,7 @@ with serial.Serial() as s_port: # Fill in correct serial port when found
     
     s_port.write (setpoint) # Send the set point value
     
-    entry = s_port.readline().split(b',')
+    entry = s_port.readline().split(b' , ')
     print(entry) # Test to see if we have the correct inputs
     try:    # Check if the values can be converted into a float
         entry[0] = float(entry[0])
