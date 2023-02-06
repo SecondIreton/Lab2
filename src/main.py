@@ -51,5 +51,7 @@ def main():
     moe.set_duty_cycle(0)
     cll.printRes()
     
+    cll.printRes()
+    
 if __name__ == "__main__":
     main()
