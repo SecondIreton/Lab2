@@ -5,8 +5,9 @@ Created on Tue Jan 31 12:56:44 2023
 
 @author: scottbrown
 """
-
+#pip install "pyserial"
 # Import serial library
+#import pyserial
 import serial
 # Import pyplot
 from matplotlib import pyplot
@@ -25,7 +26,7 @@ if req_point.type == int():
     
 # The shoe serial port for the mac: /dev/tty.usbmodem2073337757522
 
-with serial.Serial() as s_port: # Fill in correct serial port when found
+with serial.Serial('COM11',115200) as s_port: # Fill in correct serial port when found
     
     s_port.write (setpoint) # Send the set point value
     
