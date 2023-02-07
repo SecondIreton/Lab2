@@ -34,5 +34,5 @@ class clCont:
 
     def printRes(self):
         for val in range(len(self.t)):
-            print(self.t[val], ",", self.p[val])
+            print(self.t[val],',', self.p[val])
            
