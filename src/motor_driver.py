@@ -78,13 +78,3 @@ class MotorDriver:
     except KeyboardInterrupt:
         en_pin.low()
         print('Interrupted :/')'''
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
