@@ -30,27 +30,23 @@ def main():
     enc.zero()
     
     '''Control Loop Setup'''
-    new_Kp = True
-    while new_Kp == True:
-        print('Input Proportional Gain Constant, Kp:')
-        Kp = input()
-        try:
-            Kp = float(Kp)
-            new_Kp = False
-        except:
-            print('Please input a numeric value.')
+    Kp = 0.005				#0.1 excessive oscillation,  0.005 good performance, 0.002 underdamped
     cll = clCont(0, Kp)
+    
+    '''Serial Bus Setup'''
+    ser = pyb.UART(2,115200)
 
-    for i in range(100):
-        #Set Output to full Rev Here
-        # OP = SP +
-        lvl = cll.run(8000, enc.read())
+    zeroPoint = utime.ticks_ms()
+    
+    for i in range(300):
+        t = utime.ticks_ms() - zeroPoint
+        p = enc.read()
+        ser.write(f"{t},{p} \r\n")
+        lvl = cll.run(8000, p)
         moe.set_duty_cycle(lvl)
         utime.sleep_ms(10)
     moe.set_duty_cycle(0)
-    cll.printRes()
-    
-    cll.printRes()
+    ser.write("Stahp\r\n")
     
 if __name__ == "__main__":
     main()
