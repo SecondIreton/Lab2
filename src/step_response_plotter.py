@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Jan 31 12:56:44 2023
-
 @author: scottbrown
+@title: step_response_plotter
 """
 
 # Import serial library
@@ -16,14 +16,8 @@ x_data = []
 y_data = []
 
 # Create labels for plots
-x_label = 'Time, s'  ## Variable name
+x_label = 'Time, ms'  ## Variable name
 y_label = 'Location, ticks'  ## Variable name
-
-"""
-req_point =  input('Enter a 4 digit number: ')
-if req_point.type == int():
-    setpoint = req_point  # Assign the inputed value to setpoint
- """
 
 # The shoe serial port for the mac: /dev/tty.usbmodem2073337757522
 # for max COM: '/dev/cu.usbmodem103'
