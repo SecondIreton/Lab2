@@ -47,7 +47,7 @@ class EncoderReader:
         self.former_position = 0
         self.timer.counter(0)
 
-'''if __name__ == "__main__":
+if __name__ == "__main__":
     # Section for testing code
     pinB6 = pyb.Pin (pyb.Pin.board.PB6, pyb.Pin.IN)
     pinB7 = pyb.Pin (pyb.Pin.board.PB7, pyb.Pin.IN)
@@ -55,4 +55,4 @@ class EncoderReader:
     test.zero()
     while True:
         print(test.read())
-        pyb.delay(100)'''
+        pyb.delay(100)
