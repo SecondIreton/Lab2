@@ -4,7 +4,7 @@
 The controller presented in this lab works by means of repeatedly calling
 the function `run(desired, actual)` on the instantiated motor controller object.
 This function computes the difference between the desired and actual angular
-displacements of the motor, then multiplies this value by a user defined gain ,
+displacements of the motor, then multiplies this value by a user defined gain,
 Kp, to obtain a PWM value. This value may then be fed into a Motor Driver object,
 as defined in the **motor_driver.py** class file. The desired position is user
 defined, while the actual position is returned by means of an Encoder Reader
@@ -30,4 +30,15 @@ quickly (100 times per second or more), this comparatively large displacement
 will catch overflow/underflow in the counter.
 
 ### Step Response Plotter
-The step response plotter 
+The step response plotter recieves data transmitted from the MCU over the
+serial port to the PC. The MCU sends both time and positioning data read by the
+internal clock and the encoder from the **encoder_reader.py** over the ST-Link.
+The PC opens the serial port off COM11 and reads the time and positioning data 
+sent from the MCU. The program reads from the serial port until given a command 
+to stop, which it then transitions to plotting the recieved data.
+
+## Main
+The main function interfaces with the MCU and sends commands to run the motor. 
+By providing a Kp value to the **main.py**, the motor uses the 
+**encoder_reader.py** to determine its position and uses a simple proportional
+gain model to control the motor.
