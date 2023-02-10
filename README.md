@@ -41,4 +41,10 @@ to stop, which it then transitions to plotting the recieved data.
 The main function interfaces with the MCU and sends commands to run the motor. 
 By providing a Kp value to the **main.py**, the motor uses the 
 **encoder_reader.py** to determine its position and uses a simple proportional
-gain model to control the motor. ![My Image](docs/CriticallyAmplified_Flywheel_Plot.png)
+gain model to control the motor.
+
+## Plots
+In order to evaluate the response of the motor controller, three plots were 
+created; the first plot (Figure 1), of critically amplified flywheel response was modeled 
+with a Kp of 0.005 ![My Image](docs/CriticallyAmplified_Flywheel_Plot.png)
+Figure 1
