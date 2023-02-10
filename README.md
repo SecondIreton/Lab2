@@ -37,8 +37,8 @@ The PC opens the serial port off COM11 and reads the time and positioning data
 sent from the MCU. The program reads from the serial port until given a command 
 to stop, which it then transitions to plotting the recieved data.
 
-## Main
+### Main
 The main function interfaces with the MCU and sends commands to run the motor. 
 By providing a Kp value to the **main.py**, the motor uses the 
 **encoder_reader.py** to determine its position and uses a simple proportional
-gain model to control the motor.
+gain model to control the motor. ![My Image](docs/CriticallyAmplified_Flywheel_Plot.png)
