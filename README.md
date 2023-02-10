@@ -50,9 +50,13 @@ with a Kp of 0.005. The figure 2 illustrates the motor's responce to a high Kp
 value of 0.1, generating excessive oscillation in the flywheel. The final plot,
 figure3, is that of an underdamped system, which has the characteristic slow response
 expected of the low proportional gain of 0.02.
+
 ![My Image](docs/CriticallyAmplified_Flywheel_Plot.png)
+
 Figure 1
 ![My Image](docs/ExcessiveOscillation_Flywheel_Plot.png)
+
 Figure 2
 ![My Image](docs/UnderAmplified_Flywheel_Plot.png)
+
 Figure 3
