@@ -1,4 +1,12 @@
-import pyb
+"""!
+@file motor_driver.py
+This file contains code to run the motor 
+
+@author mecha12
+@date   31-jan
+"""
+
+import pyb # The module for the microcontroller
 
 class MotorDriver:
     """! 
@@ -55,26 +63,3 @@ class MotorDriver:
             self.ch2.pulse_width_percent(level)
             self.ch1.pulse_width_percent(0)
         #print (f"Setting duty cycle to {level}")
-        
-        
-        
-'''if __name__ == '__main__':
-    # Section for testing code?
-    
-    moe = MotorDriver (a_pin, another_pin, a_timer)
-    moe.set_duty_cycle (-42)
-    
-    pinA10 = pyb.Pin(pyb.Pin.board.PA10, pyb.Pin.OUT_PP)
-    pinB4 = pyb.Pin(pyb.Pin.board.PB4, pyb.Pin.OUT_PP)
-    pinB5 = pyb.Pin(pyb.Pin.board.PB5, pyb.Pin.OUT_PP)
-    tim = 3
-    
-    #moe = MotorDriver(pinA10,pinB4,pinB5,tim)
-    #moe.set_duty_cycle(50)
-   try:
-        #moe = MotorDriver(pinA10,pinB4,pinB5,tim)
-        #moe.set_duty_cycle(50)
-        main()
-    except KeyboardInterrupt:
-        en_pin.low()
-        print('Interrupted :/')'''

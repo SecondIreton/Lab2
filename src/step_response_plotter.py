@@ -1,15 +1,14 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 31 12:56:44 2023
-@author: scottbrown
-@title: step_response_plotter
+"""!
+@file step_response_plotter.py
+This file contains code which takes in time and position data from the serial port
+and outputs plots of the time and position
+
+@author mecha12
+@date   31-jan
 """
 
-# Import serial library
-import serial
-# Import pyplot
-from matplotlib import pyplot
+import serial # Import serial library
+from matplotlib import pyplot # Import pyplot
 
 # Create empty lists of x and y data
 x_data = []
@@ -19,19 +18,9 @@ y_data = []
 x_label = 'Time, ms'  ## Variable name
 y_label = 'Location, ticks'  ## Variable name
 
-# The shoe serial port for the mac: /dev/tty.usbmodem2073337757522
-# for max COM: '/dev/cu.usbmodem103'
-
 with serial.Serial('COM11',115200) as s_port: # Fill in correct serial port when found
-    s_port.flush()
-    #s_port.write(setpoint) # Send the set point value
+    s_port.flush() # Clear serial port
     
-    '''req_point =  input('Enter a Kp Value: ')
-    if type(req_point) == float():
-        Kp_Val = float(req_point)
-        s_port.write(b'Kp_Val')
-'''
-    #if s_port.any is True:
     while True:
         entry = s_port.readline().decode()
         if entry == 'Stahp\r\n':
